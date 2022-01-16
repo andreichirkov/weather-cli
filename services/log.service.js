@@ -19,4 +19,14 @@ const printHelp = () => {
   )
 }
 
-export { printError, printSuccess, printHelp }
+//то что получили от апи придет сюда
+const printWeather = (res, icon) => {
+  console.log(
+      dedent`${chalk.bgCyanBright(' WEATHER ')} Погода в городе: ${res.name.toUpperCase()}
+        ${icon} ~ ${res.weather[0].description.toUpperCase()}
+        Температура: ${res.main.temp} (ощущается как ${res.main.feels_like})
+        Скорость ветра: ${res.wind.speed}`
+  )
+}
+
+export { printError, printSuccess, printHelp, printWeather }
